@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow AI - Gerenciador Inteligente</title>
+    <!-- Tailwind CSS para design de alto nível -->
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+
+    <div class="container mx-auto max-w-4xl p-6">
+        <!-- Cabeçalho -->
+        <header class="flex justify-between items-center mb-8 border-b border-slate-800 pb-6">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                    TaskFlow AI
+                </h1>
+                <p class="text-slate-400 text-sm mt-1">Gerenciamento de tarefas com priorização inteligente.</p>
+            </div>
+            <div id="stats" class="text-xs bg-slate-800 px-4 py-2 rounded-full border border-slate-700 text-slate-300">
+                Carregando estatísticas...
+            </div>
+        </header>
+
+        <!-- Painel Principal -->
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Formulário de Entrada -->
+            <section class="md:col-span-1 bg-slate-800 p-5 rounded-2xl border border-slate-700 h-fit">
+                <h2 class="text-lg font-bold mb-4 text-slate-200">Nova Tarefa</h2>
+                <form id="task-form" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Título</label>
+                        <input type="text" id="task-title" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 transition-colors" placeholder="Ex: Estudar Node.js">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Prazo (Deadline)</label>
+                        <input type="date" id="task-date" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Impacto no Negócio</label>
+                        <select id="task-impact" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                            <option value="1">Baixo</option>
+                            <option value="2">Médio</option>
+                            <option value="3">Alto / Crítico</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-medium text-sm py-2.5 rounded-lg transition-all shadow-lg shadow-blue-500/10">
+                        Adicionar com AI
+                    </button>
+                </form>
+            </section>
+
+            <!-- Lista de Tarefas Otimizada -->
+            <section class="md:col-span-2 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-bold text-slate-200">Fila de Execução Otimizada</h2>
+                    <span class="text-xs text-emerald-400 font-mono bg-emerald-500/10 px-2 py-1 rounded">AI Sorting: Ativo</span>
+                </div>
+                
+                <div id="tasks-container" class="space-y-3">
+                    <!-- As tarefas serão injetadas aqui via JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
